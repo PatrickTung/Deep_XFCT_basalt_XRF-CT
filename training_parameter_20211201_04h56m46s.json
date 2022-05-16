@@ -1,0 +1,143 @@
+{
+    "DLL version" : "2021.3.0.1069",
+    "hostname" : "DESKTOP-OVGFIS0",
+    "multi_slice_settings" : [
+        {
+            "CHANNEL_COUNT" : 1,
+            "INC_SLICE_IDX" : 1,
+            "REF_IDX" : 0
+        }
+    ],
+    "training_parameters" : {
+        "BATCH_SIZE" : 16,
+        "CALLBACKS" : [
+            {
+                "args" : {},
+                "hidden_args" : {},
+                "type" : "Terminate On NaN",
+                "used" : true
+            },
+            {
+                "args" : {
+                    "baseline" : null,
+                    "min_delta" : 0.0001,
+                    "mode" : "auto",
+                    "monitor" : "val_loss",
+                    "patience" : 15,
+                    "restore_best_weights" : true,
+                    "use_patience_ratio" : true
+                },
+                "hidden_args" : {},
+                "type" : "Early Stopping",
+                "used" : false
+            },
+            {
+                "args" : {
+                    "mode" : "auto",
+                    "monitor" : "val_loss"
+                },
+                "hidden_args" : {},
+                "type" : "Model Checkpoint",
+                "used" : true
+            },
+            {
+                "args" : {
+                    "batch_size" : 32,
+                    "embeddings_data" : null,
+                    "embeddings_freq" : 0,
+                    "embeddings_layer_names" : null,
+                    "embeddings_metadata" : null,
+                    "update_freq" : "epoch",
+                    "write_grads" : false,
+                    "write_graph" : true,
+                    "write_images" : false
+                },
+                "hidden_args" : {},
+                "type" : "Tensor Board",
+                "used" : false
+            },
+            {
+                "args" : {
+                    "cooldown" : 0,
+                    "factor" : 0.1,
+                    "min_delta" : 0.0001,
+                    "min_lr" : 0,
+                    "mode" : "auto",
+                    "monitor" : "val_loss",
+                    "patience" : 10,
+                    "use_cooldown_ratio" : true,
+                    "use_patience_ratio" : true
+                },
+                "hidden_args" : {},
+                "type" : "Reduce LR On Plateau",
+                "used" : false
+            },
+            {
+                "args" : {
+                    "(*) filename" : null,
+                    "append" : false,
+                    "separator" : ","
+                },
+                "hidden_args" : {},
+                "type" : "CSV Logger",
+                "used" : true
+            }
+        ],
+        "DATASET_SETTINGS" : {
+            "SPLIT_PERCENTAGE_TEST" : 10,
+            "SPLIT_PERCENTAGE_VALIDATION" : 20,
+            "SPLIT_TRAINING_DATA" : true,
+            "USE_TEST" : true,
+            "USE_VALIDATION" : true
+        },
+        "DATA_AUGMENTATION_SETTINGS" : {
+            "AUGMENTATION_FACTOR" : 10,
+            "BRIGHTNESS_RANGE" : [
+                0.9,
+                1.1
+            ],
+            "ELASTIC_SIGMA" : [
+                0.08,
+                0.16
+            ],
+            "FLIP_H" : true,
+            "FLIP_V" : true,
+            "GAUSSIAN_VAR" : [
+                0.0,
+                0.01
+            ],
+            "ROTATION" : 180,
+            "SHEAR" : 2,
+            "USE_BRIGHTNESS" : false,
+            "USE_DATA_AUGMENTATION" : true,
+            "USE_ELASTIC" : false,
+            "USE_GAUSSIAN_NOISE" : false,
+            "USE_ROTATION" : true,
+            "USE_SHEAR" : true,
+            "USE_ZOOM" : true,
+            "ZOOM" : [
+                0.9,
+                1.1
+            ]
+        },
+        "EPOCHS_NUM" : 500,
+        "INPUT_SIZE" : {
+            "x" : 128,
+            "y" : 128,
+            "z" : 1
+        },
+        "INPUT_STRIDE" : 1.0,
+        "LOSS_FUNCTION" : "OrsDiceLoss_d2d1cfda23cb11e984b340167e7aa998",
+        "METRICS" : [
+            "OrsDiceCoefficient_21dfb8004cc411e993da40167e7aa998"
+        ],
+        "OPTIMIZER" : "Adadelta",
+        "OPTIMIZER_PARAMETERS" : {
+            "decay" : 0.0,
+            "epsilon" : 1e-07,
+            "learning_rate" : 1.0,
+            "name" : "Adadelta",
+            "rho" : 0.95
+        }
+    }
+}
